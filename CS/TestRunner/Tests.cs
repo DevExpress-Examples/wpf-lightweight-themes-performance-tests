@@ -98,7 +98,7 @@ public class Tests {
         }
     }
     static void SetUp(Configuration configuration) {
-        if (TestNETFramework) {
+        if (configuration == Configuration.NETFramework || configuration == Configuration.NETFrameworkWithNGen) {
             if (TestLatestVersion)
                 Ngen(DXVersion.Latest, configuration == Configuration.NETFrameworkWithNGen);
             if (Test22_2)
