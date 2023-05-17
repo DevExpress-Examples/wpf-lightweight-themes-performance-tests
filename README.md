@@ -1,3 +1,6 @@
+<!-- default badges list -->
+[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+<!-- default badges end -->
 # WPF Lightweight Themes - Performance Tests
 
 In v23.1, we optimize our existing themes and introduced new lightweight themes that are optimized for speed and memory consumption. This sample application allows you to test our performance enhancements on your machine.
