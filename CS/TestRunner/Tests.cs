@@ -220,6 +220,7 @@ public class Tests {
                 FileName = "dotnet",
                 Arguments = $"publish {csproj} --configuration Release --runtime win-x86 --self-contained -p:PublishReadyToRun=true",
                 UseShellExecute = true,
+                WindowStyle = ProcessWindowStyle.Minimized,
             }
         };
         process.Start();
