@@ -4,7 +4,7 @@
 <!-- default badges end -->
 # WPF Lightweight Themes - Performance Tests
 
-In v23.1, we optimize our existing themes and introduced new lightweight themes that are optimized for speed and memory consumption. This sample application allows you to test our performance enhancements on your machine.
+In v23.1, we optimized our existing themes and introduced new lightweight themes that are designed to enhance the startup speed and memory consumption. This sample application allows you to test our performance enhancements on your machine.
 
 ## Solution Structure
 
@@ -29,9 +29,9 @@ public static bool MemoryMonitoring => IsTestRun && TestType == TestType.ColdSta
 static int HotStartRunCount => 5;
 ```
 
-The opened window's title bar displays the startup time in milliseconds.
+The opened window displays the startup time (in milliseconds) in its title bar.
 
-The **TestRunner** project contains the NUnit test that runs PerfApp applications one by one based on settings specified in the `Tests.cs` file:
+The **TestRunner** project contains the NUnit test that runs **PerfApp** applications one by one based on settings specified in the `Tests.cs` file:
 
 ```cs
 public static TestConfigurations TestConfigurations = TestConfigurations.All;
@@ -57,9 +57,9 @@ Follow the steps below to run tests:
 1. Open the `ComponentStartupTests.sln` solution.
 2. Build the solution in the **Release** configuration.
 3. (Recommended) Close all opened applications except for the Visual Studio.
-4. Run tests. We recommend that you use the CodeRush Visual Studio extension. In this case you can right-click the **TestRunner** project and select **Run Tests**.
+4. Run tests. We recommend that you use the [CodeRush Visual Studio](https://www.devexpress.com/products/coderush/) extension. In this case, you can right-click the **TestRunner** project in the Solution Explorer and select **Run Tests**.
 
-After all tests have passed, the application creates the `Results.md` file with test results.
+After all tests were passed, the application creates the `Results.md` file with test results.
 
 > **Note**
 > It could take more that an hour to run test for all views in all configurations.
