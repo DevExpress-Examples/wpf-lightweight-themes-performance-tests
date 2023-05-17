@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>Icon_Scale_20x20</title>
+<polygon points="11 13 13.5 15.5 12 17 17 17 17 12 15.5 13.5 13 11 11 13" class="Blue"/>
+<rect x="3" y="3" width="8" height="8" class="Blue"/>
+<path d="M18.1,1H1.9a.9.9,0,0,0-.9.9V18.1a.9.9,0,0,0,.9.9H18.1a.9.9,0,0,0,.9-.9V1.9A.9.9,0,0,0,18.1,1ZM18,18H2V2H18Z" class="Blue"/>
+</svg>

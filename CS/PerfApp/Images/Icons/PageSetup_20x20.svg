@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>PageSetup_20x20</title>
+<path d="M18.72,18.27l-3.49-3.49h0a2.8,2.8,0,0,0-3.36-3.67l1.72,1.71a1.41,1.41,0,0,1-2,2L9.86,13.09a2.8,2.8,0,0,0,3.94,3.24l3.43,3.43a1.05,1.05,0,1,0,1.49-1.49Z" class="Blue"/>
+<path d="M14,18H4V2h8V5a1,1,0,0,0,1,1h3v8l1,1V5.41a1,1,0,0,0-.29-.7L13.29,1.29a1,1,0,0,0-.7-.29H3.88A.89.89,0,0,0,3,1.9V18.1a.89.89,0,0,0,.88.9H15Z" class="Black"/>
+</svg>

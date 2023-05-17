@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="PerfApp.SchedulerModule.SchedulerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:PerfApp.SchedulerModule">
+    <UserControl.Resources>
+        <sys:String x:Key="dinnerId">dinnerRegion</sys:String>
+    </UserControl.Resources>
+    
+    <dxsch:SchedulerControl                 
+            x:Name="scheduler" ShowBorder="False" GroupType="Resource"
+            Start="{Binding Start, Mode=TwoWay}" AllowAppointmentConflicts="True"
+            ShowDateNavigationPanel="True" CommandBarStyle="Ribbon" dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap">
+        <dxsch:DayView 
+                x:Name="dayView" TimeIndicatorVisibility="TodayView" TimeMarkerVisibility="Always"
+                SnapToCellsMode="Never" TimeRegionSnapToCellsMode="Never" TimeScale="00:30:00"
+                ShowWorkTimeOnly="False" ShowResourceNavigator="True" ResourcesPerPage="3"
+                DayCount="2"/>
+        <dxsch:WorkWeekView x:Name="workWeekView" SyncSettingsWithDayView="True" ResourcesPerPage="2"/>
+        <dxsch:WeekView x:Name="weekView" SyncSettingsWithDayView="True" ResourcesPerPage="2"/>
+        <dxsch:MonthView x:Name="monthView" ShowResourceNavigator="True" TimeRegionVisibility="Never" ResourcesPerPage="1" ViewMode="Standard"/>
+        <dxsch:TimelineView 
+                x:Name="timelineView" 
+                ViewMode="Standard" 
+                StretchAppointments="False"
+                SnapToCellsMode="Never"
+                TimeRegionVisibility="Never"
+                AppointmentMinHeight="36"
+                AppointmentMinWidth="40"
+                ResourceMinHeight="44"
+                ResourceMaxHeight="116"
+                NavigationButtonsVisibility="Never"/>
+        <dxsch:SchedulerControl.DataSource>
+            <dxsch:DataSource 
+                    AppointmentsSource="{Binding Appointments}"
+                    ResourcesSource="{Binding Calendars}"
+                    ResourceSharing="True">
+                <dxsch:DataSource.AppointmentMappings>
+                    <dxsch:AppointmentMappings 
+                            Id="Id" AllDay="AllDay" Type="AppointmentType" Start="Start" End="End" Subject="Subject"
+                            Description="Description" Location="Location" ResourceId="CalendarIds"
+                            RecurrenceInfo="RecurrenceInfo" StatusId="Status" LabelId="Label" 
+                            TimeZoneId="TimeZoneId"/>
+                </dxsch:DataSource.AppointmentMappings>
+                <dxsch:DataSource.ResourceMappings>
+                    <dxsch:ResourceMappings Id="Id" Caption="Name" Visible="IsVisible" Group="Group" />
+                </dxsch:DataSource.ResourceMappings>
+            </dxsch:DataSource>
+        </dxsch:SchedulerControl.DataSource>
+        <dxsch:SchedulerControl.TimeRegionItems>
+            <dxsch:TimeRegionItem 
+                    Type ="Pattern"
+                    Start="1/1/2019 13:00:00" End="1/1/2019 14:00:00"
+                    RecurrenceInfo="{dxsch:RecurrenceDaily Start='1/1/2019 13:00:00', ByDay=WorkDays}"
+                    BrushName="{x:Static dxsch:DefaultBrushNames.TimeRegion3Hatch}"
+                    Id="{StaticResource dinnerId}"/>
+            <dxsch:TimeRegionItem 
+                    Type ="Pattern"
+                    Start="1/1/2019 00:00:00" End="1/2/2019 00:00:00"
+                    RecurrenceInfo="{dxsch:RecurrenceDaily Start='1/1/2019 00:00:00', ByDay=WeekendDays}"
+                    BrushName="{x:Static dxsch:DefaultBrushNames.TimeRegion8Dotted}"/>
+            <dxsch:TimeRegionItem 
+                    Type ="Pattern"
+                    Start="1/1/2019 18:00:00" End="1/1/2019 19:00:00"
+                    RecurrenceInfo="{dxsch:RecurrenceDaily Start='1/1/2019 18:00:00', ByDay=WorkDays}"
+                    ResourceId="{x:Static local:WorkData.CalendarConferenceRoomId}"
+                    BrushName="{x:Static dxsch:DefaultBrushNames.TimeRegion1Dotted}"/>
+            <dxsch:TimeRegionItem 
+                    Type ="Pattern"
+                    Start="1/1/2019 18:00:00" End="1/1/2019 19:00:00"
+                    RecurrenceInfo="{dxsch:RecurrenceDaily Start='1/1/2019 18:00:00', ByDay=WorkDays}"
+                    ResourceId="{x:Static local:WorkData.CalendarTrainingRoomId}"
+                    BrushName="{x:Static dxsch:DefaultBrushNames.TimeRegion1Dotted}"/>
+        </dxsch:SchedulerControl.TimeRegionItems>
+    </dxsch:SchedulerControl>
+</UserControl>

@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="PerfApp.DefaultView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="6"/>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Orientation="Vertical">
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="Editors" Click="Button_Click"/>
+                <Button Content="Bars" Click="Button_Click"/>
+                <Button Content="Ribbon" Click="Button_Click"/>
+                <Button Content="Grid" Click="Button_Click"/>
+                <Button Content="RichEdit" Click="Button_Click"/>
+                <Button Content="Scheduler" Click="Button_Click"/>
+                <Button Content="Charts" Click="Button_Click"/>
+                <Button Content="Main" Click="Button_Click"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="Preload Theme Resources" Click="Button_Click_1"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="Office2019System" Click="Button_Click_2"/>
+                <Button Content="VS2019System" Click="Button_Click_2"/>
+                <Button Content="Win10System" Click="Button_Click_2"/>
+                <Button Content="Win10SystemColors" Click="Button_Click_2"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="Office2019Black" Click="Button_Click_2"/>
+                <Button Content="BrickworkOffice2019Black" Click="Button_Click_2"/>
+                <Button Content="CobaltBlueOffice2019Black" Click="Button_Click_2"/>
+                <Button Content="DarkLilacOffice2019Black" Click="Button_Click_2"/>
+                <Button Content="EnhancedContrastOffice2019Black" Click="Button_Click_2"/>
+                <Button Content="RedWineOffice2019Black" Click="Button_Click_2"/>
+                <Button Content="SpruceLeavesOffice2019Black" Click="Button_Click_2"/>
+                <Button Content="TurquoiseOffice2019Black" Click="Button_Click_2"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="Office2019Colorful" Click="Button_Click_2"/>
+                <Button Content="BrickworkOffice2019Colorful" Click="Button_Click_2"/>
+                <Button Content="CobaltBlueOffice2019Colorful" Click="Button_Click_2"/>
+                <Button Content="DarkLilacOffice2019Colorful" Click="Button_Click_2"/>
+                <Button Content="EnhancedContrastOffice2019Colorful" Click="Button_Click_2"/>
+                <Button Content="RedWineOffice2019Colorful" Click="Button_Click_2"/>
+                <Button Content="SpruceLeavesOffice2019Colorful" Click="Button_Click_2"/>
+                <Button Content="TurquoiseOffice2019Colorful" Click="Button_Click_2"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="VS2019Blue" Click="Button_Click_2"/>
+                <Button Content="EnhancedContrastVS2019Blue" Click="Button_Click_2"/>
+                <Button Content="LatteVS2019Blue" Click="Button_Click_2"/>
+                <Button Content="NavyVS2019Blue" Click="Button_Click_2"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="VS2019Dark" Click="Button_Click_2"/>
+                <Button Content="BlueberryCakeVS2019Dark" Click="Button_Click_2"/>
+                <Button Content="DeepSeaVS2019Dark" Click="Button_Click_2"/>
+                <Button Content="DimmedVS2019Dark" Click="Button_Click_2"/>
+                <Button Content="EnhancedContrastVS2019Dark" Click="Button_Click_2"/>
+                <Button Content="SandVS2019Dark" Click="Button_Click_2"/>
+                <Button Content="StormVS2019Dark" Click="Button_Click_2"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Button Content="VS2019Light" Click="Button_Click_2"/>
+                <Button Content="BerberisVS2019Light" Click="Button_Click_2"/>
+                <Button Content="CornflowerVS2019Light" Click="Button_Click_2"/>
+                <Button Content="EmeraldSeaVS2019Light" Click="Button_Click_2"/>
+                <Button Content="EnhancedContrastVS2019Light" Click="Button_Click_2"/>
+                <Button Content="LightLilacVS2019Light" Click="Button_Click_2"/>
+                <Button Content="LoftVS2019Light" Click="Button_Click_2"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

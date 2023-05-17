@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>FontSizeIncrease_20x20</title>
+<path d="M11.37,3.94,16,16.06H13.19l-1-2.7H7.73l-1,2.7H4L8.63,3.94Zm.22,7.48L10,6.92l-1.61,4.5Z" class="Black"/>
+<polygon points="16 0 20 4 12 4 16 0" class="Blue"/>
+</svg>

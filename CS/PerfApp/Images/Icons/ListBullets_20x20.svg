@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>ListBullets_20x20</title>
+<circle cx="3.5" cy="5.5" r="1.5" class="Blue"/>
+<rect x="6" y="5" width="12" height="1" class="Black"/>
+<circle cx="3.5" cy="15.5" r="1.5" class="Blue"/>
+<rect x="6" y="15" width="12" height="1" class="Black"/>
+<circle cx="3.5" cy="10.5" r="1.5" class="Blue"/>
+<rect x="6" y="10" width="12" height="1" class="Black"/>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>SelectAll_20x20</title>
+<rect x="1" y="7" width="1" height="2" class="Black"/>
+<rect x="1" y="11" width="1" height="2" class="Black"/>
+<rect x="7" y="1" width="2" height="1" class="Black"/>
+<rect x="7" y="18" width="2" height="1" class="Black"/>
+<polygon points="15 1 15 2 18 2 18 5 19 5 19 1 15 1" class="Black"/>
+<rect x="11" y="1" width="2" height="1" class="Black"/>
+<rect x="18" y="7" width="1" height="2" class="Black"/>
+<rect x="11" y="18" width="2" height="1" class="Black"/>
+<polygon points="2 15 1 15 1 19 5 19 5 18 2 18 2 15" class="Black"/>
+<polygon points="1 5 2 5 2 2 5 2 5 1 1 1 1 5" class="Black"/>
+<polygon points="18 18 15 18 15 19 19 19 19 15 18 15 18 18" class="Black"/>
+<rect x="18" y="11" width="1" height="2" class="Black"/>
+<rect x="5" y="5" width="10" height="10" class="Blue"/>
+</svg>

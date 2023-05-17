@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>Gallery_20x20</title>
+<polygon points="3 3 14 3 14 2 2 2 2 14 3 14 3 3" class="Blue"/>
+<polygon points="5 5 16 5 16 4 4 4 4 16 5 16 5 5" class="Green"/>
+<rect x="6" y="6" width="12" height="12" class="Blue"/>
+</svg>

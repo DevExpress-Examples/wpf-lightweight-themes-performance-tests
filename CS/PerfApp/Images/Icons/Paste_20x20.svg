@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>Paste_20x20</title>
+<rect x="14" y="14" width="4" height="1" class="Black"/>
+<rect x="14" y="16" width="4" height="1" class="Black"/>
+<path d="M16,2H15v8h2V2.8A.92.92,0,0,0,16,2Z" class="Yellow"/>
+<path d="M5,2H4a.92.92,0,0,0-1,.8V17.2A.92.92,0,0,0,4,18h7V16H5Z" class="Yellow"/>
+<path d="M19,11H13a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h6a1,1,0,0,0,1-1V12A1,1,0,0,0,19,11Zm0,8H13V12h6Z" class="Black"/>
+<path d="M12,2V1a1,1,0,0,0-1-1H9A1,1,0,0,0,8,1V2H6V5h8V2Z" class="Black"/>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>New_20x20</title>
+<path d="M13.29,1.29a1,1,0,0,0-.7-.29H3.88A.89.89,0,0,0,3,1.9V18.1a.89.89,0,0,0,.88.9H16.13a.88.88,0,0,0,.87-.9V5.41a1,1,0,0,0-.29-.7ZM16,18H4V2h8V5a1,1,0,0,0,1,1h3Z" class="Black"/>
+</svg>

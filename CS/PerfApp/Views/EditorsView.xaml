@@ -1,0 +1,197 @@
+﻿<UserControl
+    x:Class="PerfApp.EditorsModule.EditorsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:local="clr-namespace:PerfApp.EditorsModule">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="priorityCellTemplate">
+            <Border Background="Transparent">
+                <dx:DXImage
+                    Width="16"
+                    Height="16"
+                    HorizontalAlignment="Center"
+                    Source="{Binding Path=Image}" />
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="tasksDetailsTemplate">
+            <TextBlock
+                Margin="3,0"
+                Text="{Binding Path=Row.Description}"
+                TextWrapping="WrapWithOverflow" />
+        </DataTemplate>
+        <Style TargetType="dxlc:LayoutItemLabel">
+            <Setter Property="Margin" Value="0,0,9,0" />
+        </Style>
+    </UserControl.Resources>
+
+    <dxlc:LayoutControl
+        Padding="8,12"
+        VerticalAlignment="Stretch"
+        AnimateScrolling="False"
+        DragScrolling="False"
+        Orientation="Vertical"
+        MaxWidth="600">
+        <dxlc:LayoutGroup Orientation="Vertical">
+            <dxlc:LayoutGroup
+                x:Name="imageGroup"
+                Margin="5"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <dxlc:LayoutGroup x:Name="employeeNameGroup" Orientation="Vertical">
+                    <dxlc:LayoutItem AddColonToLabel="True" Label="First Name">
+                        <dxe:TextEdit EditValue="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem AddColonToLabel="True" Label="Last Name">
+                        <dxe:TextEdit EditValue="{Binding Path=LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem AddColonToLabel="True" Label="Full Name">
+                        <dxe:TextEdit EditValue="{Binding Path=FullName, Mode=OneWay}" IsReadOnly="True" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem AddColonToLabel="True" Label="Birth Date">
+                        <dxe:DateEdit EditValue="{Binding Path=BirthDate, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutGroup ItemSpace="12" Orientation="Horizontal">
+                        <dxlc:LayoutItem
+                            HorizontalAlignment="Left"
+                            AddColonToLabel="True"
+                            Label="Title">
+                            <dxe:TextEdit Width="{Binding ActualWidth, ElementName=stateEditor}" EditValue="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem
+                            HorizontalAlignment="Right"
+                            AddColonToLabel="True"
+                            Label="Prefix">
+                            <dxe:ComboBoxEdit
+                                x:Name="prefixEditor"
+                                MinWidth="75"
+                                ApplyItemTemplateToSelectedItem="True"
+                                EditValue="{Binding Path=Prefix, Mode=TwoWay}"
+                                IsTextEditable="False">
+                                <dxmvvm:Interaction.Behaviors>
+                                    <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type local:PersonPrefix}" ImageSize="16,16" />
+                                </dxmvvm:Interaction.Behaviors>
+                            </dxe:ComboBoxEdit>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutItem HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <dxe:ImageEdit
+                        x:Name="photoEditor"
+                        Height="{Binding ActualHeight, ElementName=employeeNameGroup}"
+                        EditValue="{Binding Path=Photo, Mode=TwoWay}" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup
+                Margin="5"
+                VerticalAlignment="Top"
+                Orientation="Vertical">
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Address">
+                    <dxe:TextEdit EditValue="{Binding Path=Address.Line, Mode=TwoWay}" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem AddColonToLabel="True" Label="City">
+                    <dxe:TextEdit EditValue="{Binding Path=Address.City, Mode=TwoWay}" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutGroup ItemSpace="12" Orientation="Horizontal">
+                    <dxlc:LayoutItem
+                        MinWidth="220"
+                        HorizontalAlignment="Left"
+                        AddColonToLabel="True"
+                        Label="State">
+                        <dxe:ComboBoxEdit
+                            x:Name="stateEditor"
+                            DisplayMember="Name"
+                            EditValue="{Binding Path=Address.State, Mode=TwoWay}"
+                            ItemsSource="{dxe:EnumItemsSource EnumType={x:Type local:StateEnum},
+                                                              AllowImages=False}"
+                            ValueMember="Value" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem
+                        HorizontalAlignment="Right"
+                        AddColonToLabel="True"
+                        Label="ZIP code">
+                        <dxe:TextEdit
+                            Width="{DXBinding '@e(prefixEditor).ActualWidth + @e(imageGroup).ItemSpace + @e(photoEditor).ActualWidth'}"
+                            EditValue="{Binding Path=Address.ZipCode, Mode=TwoWay}"
+                            Mask="00000"
+                            MaskType="Simple" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup
+                Margin="5"
+                VerticalAlignment="Top"
+                Orientation="Vertical">
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Home Phone">
+                    <dxe:ButtonEdit
+                        AllowDefaultButton="False"
+                        EditValue="{Binding Path=HomePhone, Mode=TwoWay}"
+                        IsTextEditable="True"
+                        Mask="(999) 000-0000"
+                        MaskType="Simple"
+                        MaskUseAsDisplayFormat="True">
+                        <dxe:ImageButtonInfo Glyph="{dx:DXImage 'SvgImages/Outlook Inspired/Glyph_Phone.svg'}" />
+                    </dxe:ButtonEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Mobile Phone">
+                    <dxe:ButtonEdit
+                        AllowDefaultButton="False"
+                        EditValue="{Binding Path=MobilePhone, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                        IsTextEditable="True"
+                        Mask="(999) 000-0000"
+                        MaskType="Simple"
+                        MaskUseAsDisplayFormat="True">
+                        <dxe:ImageButtonInfo Glyph="{dx:DXImage 'SvgImages/Icon Builder/Electronics_PhoneIphone.svg'}" />
+                    </dxe:ButtonEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Email">
+                    <dxe:ButtonEdit
+                        AllowDefaultButton="False"
+                        EditValue="{Binding Path=Email, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                        IsTextEditable="True"
+                        Mask="(\w|[\.\-])+@(\w|[\-]+\.)*(\w|[\-]){2,63}\.[a-zA-Z]{2,4}"
+                        MaskType="RegEx"
+                        ValidateOnTextInput="True">
+                        <dxe:ImageButtonInfo Glyph="{dx:DXImage 'SvgImages/Outlook Inspired/Glyph_Mail.svg'}" />
+                    </dxe:ButtonEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Skype">
+                    <dxe:ButtonEdit
+                        AllowDefaultButton="False"
+                        EditValue="{Binding Path=Skype, Mode=TwoWay}"
+                        IsTextEditable="True">
+                        <dxe:ImageButtonInfo Glyph="{dx:DXImage 'SvgImages/HybridDemoIcons/Editors/HybridDemo_Skype.svg'}" />
+                    </dxe:ButtonEdit>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Margin="0,5" Orientation="Vertical">
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Department">
+                    <dxe:ComboBoxEdit
+                        DisplayMember="Name"
+                        EditValue="{Binding Path=Department, Mode=TwoWay}"
+                        IsTextEditable="False"
+                        ItemsSource="{dxe:EnumItemsSource EnumType=local:EmployeeDepartment,
+                                                          AllowImages=False}"
+                        ValueMember="Value" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Status">
+                    <dxe:ComboBoxEdit
+                        DisplayMember="Name"
+                        EditValue="{Binding Path=Status, Mode=TwoWay}"
+                        IsTextEditable="False"
+                        ItemsSource="{dxe:EnumItemsSource EnumType=local:EmployeeStatus,
+                                                          AllowImages=False}"
+                        ValueMember="Value" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem AddColonToLabel="True" Label="Hire Date">
+                    <dxe:DateEdit EditValue="{Binding Path=HireDate, Mode=TwoWay}" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dx:SimpleButton Content="OK" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </dxlc:LayoutGroup>
+    </dxlc:LayoutControl>
+</UserControl>

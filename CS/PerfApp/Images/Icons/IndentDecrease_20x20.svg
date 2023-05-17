@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>IndentDecrease_20x20</title>
+<polyline points="18 11 13 11 13 13 10 10 13 7 13 9 18 9" class="Blue"/>
+<path d="M2,5H18V6H2ZM2,2H18V3H2ZM2,9H8V8H2Zm0,3H8V11H2Zm0,6H18V17H2Zm0-3H18V14H2Z" class="Black"/>
+</svg>

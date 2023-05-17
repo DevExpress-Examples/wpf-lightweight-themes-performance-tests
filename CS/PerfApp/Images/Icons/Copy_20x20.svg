@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>Copy_20x20</title>
+<path d="M13.71,7.71,10.29,4.29A1,1,0,0,0,9.59,4H3.88A.89.89,0,0,0,3,4.9V18.1a.89.89,0,0,0,.88.9h9.25a.88.88,0,0,0,.87-.9V8.41A1,1,0,0,0,13.71,7.71ZM13,18H4V5H9V8a1,1,0,0,0,1,1h3v9Z" class="Black"/>
+<path d="M16.71,4.71,13.29,1.29a1,1,0,0,0-.7-.29H6.88A.89.89,0,0,0,6,1.9V4H7V2h5V5a1,1,0,0,0,1,1h3v9H14v1h2.13a.88.88,0,0,0,.87-.9V5.41A1,1,0,0,0,16.71,4.71Z" class="Black"/>
+</svg>

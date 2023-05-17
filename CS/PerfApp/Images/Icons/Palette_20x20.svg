@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>Palette_20x20</title>
+<path d="M4.65,9A5.3,5.3,0,0,1,5.4,7L2.8,4.44A9,9,0,0,0,1,9Z" class="Blue"/>
+<path d="M6.5,5.77A5.48,5.48,0,0,1,9,4.65V1A9,9,0,0,0,3.94,3.21Z" class="Blue"/>
+<path d="M5.66,13.34a5.36,5.36,0,0,1-1-2.34H1a9.06,9.06,0,0,0,2.08,4.92Z" class="Green"/>
+<path d="M11,1V4.65a5.36,5.36,0,0,1,2.34,1l2.58-2.58A9.06,9.06,0,0,0,11,1Z" class="Blue"/>
+<path d="M15.35,11a5.48,5.48,0,0,1-1.12,2.5l2.56,2.56A9,9,0,0,0,19,11Z" class="Green"/>
+<path d="M9,15.35a5.46,5.46,0,0,1-2.13-.85L4.29,17.08A9,9,0,0,0,9,19Z" class="Green"/>
+<path d="M14.5,6.87A5.46,5.46,0,0,1,15.35,9H19a9,9,0,0,0-1.92-4.71Z" class="Blue"/>
+<path d="M13,14.6a5.3,5.3,0,0,1-2,.75V19a9,9,0,0,0,4.56-1.8Z" class="Green"/>
+</svg>

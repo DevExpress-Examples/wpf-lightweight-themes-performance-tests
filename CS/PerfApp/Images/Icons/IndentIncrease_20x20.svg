@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>IndentIncrease_20x20</title>
+<path d="M18,6H2V5H18Zm0-3H2V2H18Zm0,5H12V9h6Zm0,3H12v1h6Zm0,6H2v1H18Zm0-3H2v1H18Z" class="Black"/>
+<polygon points="10 10 7 7 7 9 2 9 2 11 7 11 7 13 10 10" class="Blue"/>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<style>
+.Red {fill: #D11C1C;}
+.Yellow {fill: #FFB115;}
+.Green {fill: #039C23;}
+.Blue {fill: #1177D7; }
+.Black {fill: #727272;}
+.White {fill: #FFFFFF;}
+</style>
+<title>AlignCenter_20x20</title>
+<path d="M17,5H3V4H17ZM14,7H6V8h8Zm3,3H3v1H17Zm0,6H3v1H17Zm-3-3H6v1h8Z" class="Black"/>
+</svg>

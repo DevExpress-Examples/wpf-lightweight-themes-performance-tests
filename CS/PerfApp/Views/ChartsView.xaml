@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="PerfApp.ChartsModule.ChartsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <dxc:ChartControl Grid.RowSpan="2">
+            <dxc:SimpleDiagram2D>
+                <dxc:PieSeries2D x:Name="series" 
+                                 DisplayName="Sales" 
+                                 DataSource="{Binding Path=Data}"
+                                 ArgumentDataMember="Argument" 
+                                 ValueDataMember="Value"
+                                 LabelsVisibility="True" 
+                                 LegendTextPattern="{}{A}: {V}"
+                                 HoleRadiusPercent="50">
+                    <dxc:PieSeries2D.Model>
+                        <dxc:GlarePie2DModel/>
+                    </dxc:PieSeries2D.Model>
+                    <dxc:PieSeries2D.TotalLabel>
+                        <dxc:PieTotalLabel TextPattern="Total:&#x0a;{TV}"/>
+                    </dxc:PieSeries2D.TotalLabel>
+                    <dxc:PieSeries2D.Label>
+                        <dxc:SeriesLabel TextPattern="{}{VP:P}" 
+                                         dxc:PieSeries.LabelPosition="TwoColumns"/>
+                    </dxc:PieSeries2D.Label>
+                </dxc:PieSeries2D>
+            </dxc:SimpleDiagram2D>
+            <dxc:ChartControl.Legends>
+                <dxc:Legend>
+                    <dxc:Legend.Title>
+                        <dxc:LegendTitle Content="Units Sold"/>
+                    </dxc:Legend.Title>
+                </dxc:Legend>
+            </dxc:ChartControl.Legends>
+        </dxc:ChartControl>
+
+        <dxc:ChartControl Grid.Column="1">
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Outside Vendor Costs" HorizontalAlignment="Center"/>
+            </dxc:ChartControl.Titles>
+            <dxc:XYDiagram2D SeriesItemsSource="{Binding Data3}">
+                <dxc:XYDiagram2D.SeriesItemTemplate>
+                    <DataTemplate>
+                        <dxc:AreaSeries2D DisplayName="{Binding Name}" 
+                                          DataSource="{Binding Values}"
+                                          ArgumentDataMember="Argument"
+                                          ValueDataMember="Value" 
+                                          Transparency="0.5" 
+                                          MarkerVisible="True"
+                                          MarkerSize="10">
+                            <dxc:AreaSeries2D.MarkerModel>
+                                <dxc:CircleMarker2DModel/>
+                            </dxc:AreaSeries2D.MarkerModel>
+                        </dxc:AreaSeries2D>
+                    </DataTemplate>
+                </dxc:XYDiagram2D.SeriesItemTemplate>
+                <dxc:XYDiagram2D.AxisX>
+                    <dxc:AxisX2D>
+                        <dxc:AxisX2D.WholeRange>
+                            <dxc:Range SideMarginsValue="0.5" 
+                                       AutoSideMargins="False"/>
+                        </dxc:AxisX2D.WholeRange>
+                        <dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:ManualDateTimeScaleOptions MeasureUnit="Year"/>
+                        </dxc:AxisX2D.DateTimeScaleOptions>
+                    </dxc:AxisX2D>
+                </dxc:XYDiagram2D.AxisX>
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+
+        <dxc:ChartControl Grid.Column="1" Grid.Row="1">
+            <dxc:SimpleDiagram2D>
+                <dxc:FunnelSeries2D DataSource="{Binding Data2}"
+                                    ArgumentDataMember="Argument"
+                                    ValueDataMember="Value"
+                                    LegendTextPattern="{}{A}: {V}" 
+                                    HeightToWidthRatioAuto="False" 
+                                    HeightToWidthRatio="0.9" 
+                                    PointDistance="2"
+                                    LabelsVisibility="True">
+                    <dxc:FunnelSeries2D.Label>
+                        <dxc:SeriesLabel TextPattern="{}{VP:##.##%}"                                         
+                                         dxc:FunnelSeries2D.LabelPosition="Center"/>
+                    </dxc:FunnelSeries2D.Label>
+                </dxc:FunnelSeries2D>
+            </dxc:SimpleDiagram2D>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Website Visitor Trend"
+                           Dock="Top" 
+                           HorizontalAlignment="Center"/>
+            </dxc:ChartControl.Titles>
+            <dxc:ChartControl.Legends>
+                <dxc:Legend HorizontalPosition="RightOutside" 
+                            VerticalPosition="Top"/>
+            </dxc:ChartControl.Legends>
+        </dxc:ChartControl>
+    </Grid>
+</UserControl>
