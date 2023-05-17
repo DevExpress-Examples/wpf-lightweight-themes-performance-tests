@@ -1,13 +1,5 @@
 **Main Test: Ribbon, Docking, Grid, PropertyGrid, Accordion, Editors, LayoutControl, DXTabControl**
 
-**Russkov, real machnine, 2023-05-17, v23.1.2-beta**
-
-```
-Model: OMEN Laptop 15-en1xxx
-Processor: AMD Ryzen 7 5800H with Radeon Graphics 3.20 GHz
-Memory: 16.0 GB
-```
-
 # ColdStart, .NET Framework 4.7.2
 
 **Perfomance**
