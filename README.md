@@ -2,6 +2,8 @@
 
 In v23.1, we optimize our existing themes and introduced new lightweight themes that are optimized for speed and memory consumption. This sample application allows you to test our performance enhancements on your machine.
 
+## Solution Structure
+
 The solution contains 5 projects:
 
 * PerfApp
@@ -43,6 +45,8 @@ public static readonly bool EnableWarmingUp = true;
 public static readonly int ColdStartRunCount = 3;
 public static readonly int HotStartRunCount = 2;
 ```
+
+## Run Tests
 
 Follow the steps below to run tests:
 
