@@ -59,7 +59,7 @@ Follow the steps below to run tests:
 3. (Recommended) Close all opened applications except for the Visual Studio.
 4. Run tests. We recommend that you use the CodeRush Visual Studio extension. In this case you can right-click the **TestRunner** project and select **Run Tests**.
 
-After all tests have passed, the application creates the `Results.md` file with test results.
+After all tests have passed, the application creates the `Results.md` file with test results. In this example, the [Results.2023-05-17.md](./CS/Results.2023-05-17.md) file contains test results measured by our team.
 
 > **Note**
 > It could take more that an hour to run test for all views in all configurations.
