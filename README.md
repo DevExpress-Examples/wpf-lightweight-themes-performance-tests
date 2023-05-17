@@ -73,6 +73,7 @@ Below are test results measured by our team:
 ### ColdStart, .NET Framework 4.7.2
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 7623 ms | 6916 ms, 9.27% | 6127 ms, 19.62% |
@@ -85,6 +86,7 @@ Below are test results measured by our team:
 |  Scheduler | 4589 ms | 4494 ms, 2.07% | 3696 ms, 19.46% |
 
 **Memory**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 56542 KB | 42933 KB, 24.07% | 34564 KB, 38.87% |
@@ -98,6 +100,7 @@ Below are test results measured by our team:
 
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -196,6 +199,7 @@ Below are test results measured by our team:
 ### ColdStart, NET 7
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 6562 ms | 5925 ms, 9.71% | 4984 ms, 24.05% |
@@ -208,6 +212,7 @@ Below are test results measured by our team:
 |  Scheduler | 3960 ms | 3630 ms, 8.33% | 2994 ms, 24.39% |
 
 **Memory**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 89068 KB | 70498 KB, 20.85% | 58513 KB, 34.31% |
@@ -221,6 +226,7 @@ Below are test results measured by our team:
 
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -319,6 +325,7 @@ Below are test results measured by our team:
 ### ColdStart, .NET Framework 4.7.2, Ngen
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 3406 ms | 2816 ms, 17.32% | 2215 ms, 34.97% |
@@ -331,6 +338,7 @@ Below are test results measured by our team:
 |  Scheduler | 1807 ms | 1700 ms, 5.92% | 1257 ms, 30.44% |
 
 **Memory**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 56962 KB | 43259 KB, 24.06% | 34728 KB, 39.03% |
@@ -344,6 +352,7 @@ Below are test results measured by our team:
 
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -442,6 +451,7 @@ Below are test results measured by our team:
 ### ColdStart, NET 7, ReadyToRun
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 5125 ms | 4554 ms, 11.14% | 3578 ms, 30.19% |
@@ -454,6 +464,7 @@ Below are test results measured by our team:
 |  Scheduler | 2949 ms | 2871 ms, 2.64% | 2353 ms, 20.21% |
 
 **Memory**
+
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
 |  ---- | ---------------- | ----- | -------------- |
 |  Main | 58556 KB | 45741 KB, 21.89% | 39884 KB, 31.89% |
@@ -467,6 +478,7 @@ Below are test results measured by our team:
 
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -565,6 +577,7 @@ Below are test results measured by our team:
 ### HotStart, .NET Framework 4.7.2
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | LWThemes v23.1 |
 |  ---- | ---------------- | -------------- |
 |  Main | 1059 ms | 878 ms, 17.09% |
@@ -577,6 +590,7 @@ Below are test results measured by our team:
 |  Scheduler | 596 ms | 713 ms, -19.63% |
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -635,6 +649,7 @@ Below are test results measured by our team:
 ### HotStart, NET 7
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | LWThemes v23.1 |
 |  ---- | ---------------- | -------------- |
 |  Main | 1214 ms | 980 ms, 19.28% |
@@ -647,6 +662,7 @@ Below are test results measured by our team:
 |  Scheduler | 642 ms | 556 ms, 13.40% |
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -705,6 +721,7 @@ Below are test results measured by our team:
 ### HotStart, .NET Framework 4.7.2, Ngen
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | LWThemes v23.1 |
 |  ---- | ---------------- | -------------- |
 |  Main | 1080 ms | 894 ms, 17.22% |
@@ -717,6 +734,7 @@ Below are test results measured by our team:
 |  Scheduler | 577 ms | 476 ms, 17.50% |
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
@@ -775,6 +793,7 @@ Below are test results measured by our team:
 ### HotStart, NET 7, ReadyToRun
 
 **Perfomance**
+
 |  Test | v22.2 (baseline) | LWThemes v23.1 |
 |  ---- | ---------------- | -------------- |
 |  Main | 1103 ms | 1010 ms, 8.43% |
@@ -787,6 +806,7 @@ Below are test results measured by our team:
 |  Scheduler | 666 ms | 545 ms, 18.17% |
 
 **Plain Results**
+
 <details>
 <summary>Results</summary>
 
