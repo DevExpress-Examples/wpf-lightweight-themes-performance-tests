@@ -123,7 +123,7 @@
 
 
 
-# ColdStart, NET 7
+# ColdStart, .NET 7
 
 **Perfomance**
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
@@ -369,7 +369,7 @@
 
 
 
-# ColdStart, NET 7, ReadyToRun
+# ColdStart, .NET 7, ReadyToRun
 
 **Perfomance**
 |  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
@@ -562,7 +562,7 @@
 
 
 
-# HotStart, NET 7
+# HotStart, .NET 7
 
 **Perfomance**
 |  Test | v22.2 (baseline) | LWThemes v23.1 |
@@ -702,7 +702,7 @@
 
 
 
-# HotStart, NET 7, ReadyToRun
+# HotStart, .NET 7, ReadyToRun
 
 **Perfomance**
 |  Test | v22.2 (baseline) | LWThemes v23.1 |
