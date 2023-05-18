@@ -311,8 +311,8 @@ public class Tests {
             var config = configuration switch {
                 Configuration.NETFramework => ".NET Framework 4.7.2",
                 Configuration.NETFrameworkWithNGen => ".NET Framework 4.7.2, Ngen",
-                Configuration.NET7 => "NET 7",
-                Configuration.NET7ReadyToRun => "NET 7, ReadyToRun",
+                Configuration.NET7 => ".NET 7",
+                Configuration.NET7ReadyToRun => ".NET 7, ReadyToRun",
                 _ => throw new NotImplementedException(),
             };
             return $"# {testType}, {config}";
