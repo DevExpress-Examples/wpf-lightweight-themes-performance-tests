@@ -16,7 +16,7 @@ The solution contains 5 projects:
 * PerfApp.Net7.v22.2
 * TestRunner
 
-First 4 projects have the same UI but use different versions of DevExpress controls (23.1 and 22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` files to change the configuration:
+The first 4 projects have the same UI but use different versions of DevExpress controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` files to change the configuration:
 
 ```cs
 public static bool IsTestRun { get; private set; } = false;
@@ -56,10 +56,10 @@ Follow the steps below to run tests:
 
 1. Open the `ComponentStartupTests.sln` solution.
 2. Build the solution in the **Release** configuration.
-3. (Recommended) Close all opened applications except for the Visual Studio.
+3. (Recommended) Close all open applications except for Visual Studio.
 4. Run tests. We recommend that you use the [CodeRush Visual Studio](https://www.devexpress.com/products/coderush/) extension. In this case, you can right-click the **TestRunner** project in the Solution Explorer and select **Run Tests**.
 
-After all tests were passed, the application creates the `Results.md` file with test results.
+After all tests have passed, the application creates the `Results.md` file with test results.
 
 > **Note**
 > It could take more that an hour to run test for all views in all configurations.
@@ -99,7 +99,7 @@ Below are test results measured by our team ([Results.2023-05-17.md](./CS/Result
 |  Scheduler | 35884 KB | 31704 KB, 11.65% | 20663 KB, 42.42% |
 
 
-### ColdStart, NET 7
+### ColdStart, .NET 7
 
 **Perfomance**
 
@@ -157,7 +157,7 @@ Below are test results measured by our team ([Results.2023-05-17.md](./CS/Result
 |  Scheduler | 35895 KB | 31751 KB, 11.54% | 20648 KB, 42.48% |
 
 
-### ColdStart, NET 7, ReadyToRun
+### ColdStart, .NET 7, ReadyToRun
 
 **Perfomance**
 
@@ -202,7 +202,7 @@ Below are test results measured by our team ([Results.2023-05-17.md](./CS/Result
 |  Scheduler | 596 ms | 713 ms, -19.63% |
 
 
-### HotStart, NET 7
+### HotStart, .NET 7
 
 **Perfomance**
 
@@ -234,7 +234,7 @@ Below are test results measured by our team ([Results.2023-05-17.md](./CS/Result
 |  Scheduler | 577 ms | 476 ms, 17.50% |
 
 
-### HotStart, NET 7, ReadyToRun
+### HotStart, .NET 7, ReadyToRun
 
 **Perfomance**
 
