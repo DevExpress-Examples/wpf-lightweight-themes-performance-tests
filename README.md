@@ -62,7 +62,7 @@ Follow the steps below to run tests:
 After all tests have passed, the application creates the `Results.md` file with test results.
 
 > **Note**
-> It could take more that an hour to run test for all views in all configurations.
+> It could take more than an hour to run tests for all views in all configurations.
 
 ## Test Results
 
