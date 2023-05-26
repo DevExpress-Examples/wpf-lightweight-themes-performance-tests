@@ -16,7 +16,7 @@ The solution contains 5 projects:
 * PerfApp.Net7.v22.2
 * TestRunner
 
-The first 4 projects have the same UI but use different versions of DevExpress controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` files to change the configuration:
+The first 4 projects implement the same UI but use different versions of DevExpress controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` to change test configuration:
 
 ```cs
 public static bool IsTestRun { get; private set; } = false;
@@ -29,9 +29,9 @@ public static bool MemoryMonitoring => IsTestRun && TestType == TestType.ColdSta
 static int HotStartRunCount => 5;
 ```
 
-The opened window displays the startup time (in milliseconds) in its title bar.
+If you run an application, the main window displays startup time (in milliseconds) in its title bar.
 
-The **TestRunner** project contains the NUnit test that runs **PerfApp** applications one by one based on settings specified in the `Tests.cs` file:
+The **TestRunner** project contains an NUnit test that runs **PerfApp** applications one by one based on settings specified in `Tests.cs`:
 
 ```cs
 public static TestConfigurations TestConfigurations = TestConfigurations.All;
@@ -57,12 +57,12 @@ Follow the steps below to run tests:
 1. Open the `ComponentStartupTests.sln` solution.
 2. Build the solution in the **Release** configuration.
 3. (Recommended) Close all open applications except for Visual Studio.
-4. Run tests. We recommend that you use the [CodeRush Visual Studio](https://www.devexpress.com/products/coderush/) extension. In this case, you can right-click the **TestRunner** project in the Solution Explorer and select **Run Tests**.
+4. Run tests. We recommend that you use [CodeRush for Visual Studio](https://www.devexpress.com/products/coderush/): our developer productivity IDE extension. If you do use CodeRush, simply right-click the **TestRunner** project in the Solution Explorer and select **Run Tests**.
 
-After all tests have passed, the application creates the `Results.md` file with test results.
+After all tests pass, the application creates the `Results.md` file with test results.
 
 > **Note**
-> It could take more than an hour to run tests for all views in all configurations.
+> It could take over an hour to run tests for all views in all configurations.
 
 ## Test Results
 
