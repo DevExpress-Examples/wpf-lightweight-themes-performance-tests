@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # WPF Lightweight Themes - Performance Tests
 
-In v23.1, we optimized our existing themes and introduced new lightweight themes that are designed to enhance the startup speed and memory consumption. This sample application allows you to test our performance enhancements on your machine.
+In v23.1, we optimized our existing themes and introduced new lightweight versions for a few previously available themes: Windows 10, Office, and Visual Studio styles. The new lightweight themes consume less memory and speed up application startup. You can test these performance enhancements on your machine: run our specially-designed application available in this repository.
 
 ## Solution Structure
 
