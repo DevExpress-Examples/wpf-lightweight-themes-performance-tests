@@ -11,10 +11,10 @@ In v23.1, we optimized our existing themes and introduced new [lightweight versi
 
 The solution contains 5 projects:
 
-* PerfApp
-* PerfApp.Net7
-* PerfApp.v22.2
-* PerfApp.Net7.v22.2
+* PerfApp_Net7_v22_2
+* PerfApp_Net7_v23_1
+* PerfApp_NETFramework_v22_2
+* PerfApp_NETFramework_v23_1
 * TestRunner
 
 The first 4 projects implement the same UI but use different versions of DevExpress controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` to change test configuration:
@@ -37,18 +37,16 @@ The **TestRunner** project contains an NUnit test that runs **PerfApp** applicat
 ```cs
 public static TestConfigurations TestConfigurations = TestConfigurations.All;
 public static readonly TestViews TestViews = TestViews.All;
-
+public static readonly (DXVersion Version, TestMode Mode, bool IsBaseline)[] TestsList = new[] {
+    (DXVersion.v22_2, TestMode.LegacyThemes, true),
+    (DXVersion.v23_1, TestMode.LegacyThemes, false),
+    (DXVersion.v23_1, TestMode.LightweightThemes, false),
+};
 public static readonly bool TestColdStart = true;
 public static readonly bool TestHotStart = true;
-
-public static readonly bool TestLegacyThemes_v22_2 = true;
-public static readonly bool TestLegacyThemes = true;
-public static readonly bool TestLegacyThemesAfterPreload = false;
-public static readonly bool TestLightweightThemes = true;
-
 public static readonly bool EnableWarmingUp = true;
-public static readonly int ColdStartRunCount = 3;
-public static readonly int HotStartRunCount = 2;
+public static readonly int ColdStartRunCount = 4;
+public static readonly int HotStartRunCount = 3;
 ```
 
 ## Run Tests
@@ -67,7 +65,7 @@ After all tests pass, the application creates the `Results.md` file with test re
 
 ## Test Results
 
-Below are test results measured by our team ([Results.2023-05-17.md](./CS/Results.2023-05-17.md)):
+Below are test results measured by our team ([Results.2023-07-04.md](./CS/Results.2023-07-04.md)):
 
 **Main Test: Ribbon, Docking, Grid, PropertyGrid, Accordion, Editors, LayoutControl, DXTabControl**
 
@@ -75,116 +73,116 @@ Below are test results measured by our team ([Results.2023-05-17.md](./CS/Result
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 7623 ms | 6916 ms, 9.27% | 6127 ms, 19.62% |
-|  Bars | 2780 ms | 2148 ms, 22.73% | 1833 ms, 34.06% |
-|  Charts | 2321 ms | 2068 ms, 10.90% | 1804 ms, 22.27% |
-|  Editors | 2411 ms | 2093 ms, 13.19% | 1870 ms, 22.44% |
-|  Grid | 3026 ms | 2830 ms, 6.48% | 2485 ms, 17.88% |
-|  Ribbon | 3785 ms | 3151 ms, 16.75% | 2612 ms, 30.99% |
-|  RichEdit | 7121 ms | 6631 ms, 6.88% | 6160 ms, 13.50% |
-|  Scheduler | 4589 ms | 4494 ms, 2.07% | 3696 ms, 19.46% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 7530 ms | 6882 ms, 8.61% | 5997 ms, 20.36% |
+|  Bars | 2706 ms | 2159 ms, 20.21% | 1804 ms, 33.33% |
+|  Charts | 2239 ms | 2019 ms, 9.83% | 1813 ms, 19.03% |
+|  Editors | 2355 ms | 2070 ms, 12.10% | 1882 ms, 20.08% |
+|  Grid | 3092 ms | 2847 ms, 7.92% | 2504 ms, 19.02% |
+|  Ribbon | 3737 ms | 3098 ms, 17.10% | 2595 ms, 30.56% |
+|  RichEdit | 6510 ms | 6466 ms, 0.68% | 5835 ms, 10.37% |
+|  Scheduler | 4406 ms | 4277 ms, 2.93% | 3643 ms, 17.32% |
 
 **Memory**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 56542 KB | 42933 KB, 24.07% | 34564 KB, 38.87% |
-|  Bars | 23539 KB | 16051 KB, 31.81% | 10982 KB, 53.35% |
-|  Charts | 18589 KB | 13296 KB, 28.47% | 8768 KB, 52.83% |
-|  Editors | 22106 KB | 14883 KB, 32.67% | 11331 KB, 48.74% |
-|  Grid | 24904 KB | 17577 KB, 29.42% | 12839 KB, 48.45% |
-|  Ribbon | 33268 KB | 22918 KB, 31.11% | 16355 KB, 50.84% |
-|  RichEdit | 38015 KB | 34042 KB, 10.45% | 21626 KB, 43.11% |
-|  Scheduler | 35884 KB | 31704 KB, 11.65% | 20663 KB, 42.42% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 56489 KB | 42872 KB, 24.11% | 35658 KB, 36.88% |
+|  Bars | 23569 KB | 16053 KB, 31.89% | 11062 KB, 53.07% |
+|  Charts | 18589 KB | 13296 KB, 28.47% | 9020 KB, 51.48% |
+|  Editors | 22092 KB | 14890 KB, 32.60% | 11431 KB, 48.26% |
+|  Grid | 24903 KB | 17566 KB, 29.46% | 13343 KB, 46.42% |
+|  Ribbon | 33272 KB | 22917 KB, 31.12% | 16622 KB, 50.04% |
+|  RichEdit | 38049 KB | 34041 KB, 10.53% | 22232 KB, 41.57% |
+|  Scheduler | 35892 KB | 31713 KB, 11.64% | 20923 KB, 41.71% |
 
 
 ### ColdStart, .NET 7
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 6562 ms | 5925 ms, 9.71% | 4984 ms, 24.05% |
-|  Bars | 2571 ms | 1847 ms, 28.16% | 1536 ms, 40.26% |
-|  Charts | 1924 ms | 1747 ms, 9.20% | 1456 ms, 24.32% |
-|  Editors | 2268 ms | 1793 ms, 20.94% | 1616 ms, 28.75% |
-|  Grid | 2405 ms | 2151 ms, 10.56% | 1848 ms, 23.16% |
-|  Ribbon | 3630 ms | 2815 ms, 22.45% | 2360 ms, 34.99% |
-|  RichEdit | 5336 ms | 5130 ms, 3.86% | 4228 ms, 20.76% |
-|  Scheduler | 3960 ms | 3630 ms, 8.33% | 2994 ms, 24.39% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 6987 ms | 5729 ms, 18.00% | 4925 ms, 29.51% |
+|  Bars | 2550 ms | 1792 ms, 29.73% | 1528 ms, 40.08% |
+|  Charts | 1839 ms | 1680 ms, 8.65% | 1472 ms, 19.96% |
+|  Editors | 2215 ms | 1795 ms, 18.96% | 1569 ms, 29.16% |
+|  Grid | 2344 ms | 2146 ms, 8.45% | 1896 ms, 19.11% |
+|  Ribbon | 3402 ms | 2785 ms, 18.14% | 2312 ms, 32.04% |
+|  RichEdit | 5034 ms | 4927 ms, 2.13% | 3832 ms, 23.88% |
+|  Scheduler | 3936 ms | 3468 ms, 11.89% | 2961 ms, 24.77% |
 
 **Memory**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 89068 KB | 70498 KB, 20.85% | 58513 KB, 34.31% |
-|  Bars | 35565 KB | 25434 KB, 28.49% | 18050 KB, 49.25% |
-|  Charts | 27896 KB | 20478 KB, 26.59% | 14402 KB, 48.37% |
-|  Editors | 33232 KB | 23446 KB, 29.45% | 18709 KB, 43.70% |
-|  Grid | 37716 KB | 27449 KB, 27.22% | 21297 KB, 43.53% |
-|  Ribbon | 50819 KB | 36794 KB, 27.60% | 27345 KB, 46.19% |
-|  RichEdit | 56175 KB | 50450 KB, 10.19% | 33417 KB, 40.51% |
-|  Scheduler | 55735 KB | 49666 KB, 10.89% | 34405 KB, 38.27% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 88975 KB | 70583 KB, 20.67% | 60387 KB, 32.13% |
+|  Bars | 35543 KB | 25433 KB, 28.44% | 18182 KB, 48.85% |
+|  Charts | 27889 KB | 20478 KB, 26.57% | 14785 KB, 46.99% |
+|  Editors | 33224 KB | 23445 KB, 29.43% | 18921 KB, 43.05% |
+|  Grid | 37670 KB | 27409 KB, 27.24% | 22057 KB, 41.45% |
+|  Ribbon | 50824 KB | 36801 KB, 27.59% | 27837 KB, 45.23% |
+|  RichEdit | 56204 KB | 50420 KB, 10.29% | 34365 KB, 38.86% |
+|  Scheduler | 55728 KB | 49690 KB, 10.83% | 34823 KB, 37.51% |
 
 
 ### ColdStart, .NET Framework 4.7.2, Ngen
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 3406 ms | 2816 ms, 17.32% | 2215 ms, 34.97% |
-|  Bars | 1243 ms | 975 ms, 21.56% | 821 ms, 33.95% |
-|  Charts | 784 ms | 655 ms, 16.45% | 496 ms, 36.73% |
-|  Editors | 918 ms | 831 ms, 9.48% | 659 ms, 28.21% |
-|  Grid | 995 ms | 865 ms, 13.07% | 646 ms, 35.08% |
-|  Ribbon | 1877 ms | 1377 ms, 26.64% | 1128 ms, 39.90% |
-|  RichEdit | 1808 ms | 2456 ms, -35.84% | 1455 ms, 19.52% |
-|  Scheduler | 1807 ms | 1700 ms, 5.92% | 1257 ms, 30.44% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 4211 ms | 2885 ms, 31.49% | 2476 ms, 41.20% |
+|  Bars | 1533 ms | 997 ms, 34.96% | 813 ms, 46.97% |
+|  Charts | 867 ms | 714 ms, 17.65% | 508 ms, 41.41% |
+|  Editors | 1003 ms | 858 ms, 14.46% | 685 ms, 31.70% |
+|  Grid | 1035 ms | 882 ms, 14.78% | 674 ms, 34.88% |
+|  Ribbon | 2141 ms | 1425 ms, 33.44% | 1103 ms, 48.48% |
+|  RichEdit | 2034 ms | 2231 ms, -9.69% | 1696 ms, 16.62% |
+|  Scheduler | 1880 ms | 1869 ms, 0.59% | 1260 ms, 32.98% |
 
 **Memory**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 56962 KB | 43259 KB, 24.06% | 34728 KB, 39.03% |
-|  Bars | 23514 KB | 16043 KB, 31.77% | 10974 KB, 53.33% |
-|  Charts | 18536 KB | 13276 KB, 28.38% | 8751 KB, 52.79% |
-|  Editors | 22100 KB | 14920 KB, 32.49% | 11321 KB, 48.77% |
-|  Grid | 24904 KB | 17563 KB, 29.48% | 12834 KB, 48.47% |
-|  Ribbon | 33208 KB | 23208 KB, 30.11% | 16810 KB, 49.38% |
-|  RichEdit | 37988 KB | 34039 KB, 10.40% | 21633 KB, 43.05% |
-|  Scheduler | 35895 KB | 31751 KB, 11.54% | 20648 KB, 42.48% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 56831 KB | 43474 KB, 23.50% | 36307 KB, 36.11% |
+|  Bars | 23490 KB | 16118 KB, 31.38% | 11063 KB, 52.90% |
+|  Charts | 18537 KB | 13278 KB, 28.37% | 9008 KB, 51.41% |
+|  Editors | 22073 KB | 14897 KB, 32.51% | 11476 KB, 48.01% |
+|  Grid | 24904 KB | 17557 KB, 29.50% | 13341 KB, 46.43% |
+|  Ribbon | 33225 KB | 23227 KB, 30.09% | 17142 KB, 48.41% |
+|  RichEdit | 38021 KB | 34038 KB, 10.48% | 22228 KB, 41.54% |
+|  Scheduler | 35914 KB | 31760 KB, 11.57% | 20906 KB, 41.79% |
 
 
 ### ColdStart, .NET 7, ReadyToRun
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 5125 ms | 4554 ms, 11.14% | 3578 ms, 30.19% |
-|  Bars | 1984 ms | 1485 ms, 25.15% | 1244 ms, 37.30% |
-|  Charts | 1507 ms | 1392 ms, 7.63% | 1126 ms, 25.28% |
-|  Editors | 1638 ms | 1468 ms, 10.38% | 1265 ms, 22.77% |
-|  Grid | 1854 ms | 1662 ms, 10.36% | 1322 ms, 28.69% |
-|  Ribbon | 2789 ms | 2275 ms, 18.43% | 1923 ms, 31.05% |
-|  RichEdit | 3845 ms | 4081 ms, -6.14% | 2578 ms, 32.95% |
-|  Scheduler | 2949 ms | 2871 ms, 2.64% | 2353 ms, 20.21% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 5128 ms | 4451 ms, 13.20% | 3585 ms, 30.09% |
+|  Bars | 1936 ms | 1452 ms, 25.00% | 1225 ms, 36.73% |
+|  Charts | 1519 ms | 1335 ms, 12.11% | 1137 ms, 25.15% |
+|  Editors | 1642 ms | 1466 ms, 10.72% | 1276 ms, 22.29% |
+|  Grid | 1839 ms | 1593 ms, 13.38% | 1318 ms, 28.33% |
+|  Ribbon | 2838 ms | 2260 ms, 20.37% | 1813 ms, 36.12% |
+|  RichEdit | 3613 ms | 3440 ms, 4.79% | 3126 ms, 13.48% |
+|  Scheduler | 2928 ms | 2783 ms, 4.95% | 2286 ms, 21.93% |
 
 **Memory**
 
-|  Test | v22.2 (baseline) | v23.1 | LWThemes v23.1 |
-|  ---- | ---------------- | ----- | -------------- |
-|  Main | 58556 KB | 45741 KB, 21.89% | 39884 KB, 31.89% |
-|  Bars | 25537 KB | 19718 KB, 22.79% | 16618 KB, 34.93% |
-|  Charts | 24691 KB | 17333 KB, 29.80% | 10026 KB, 59.39% |
-|  Editors | 28278 KB | 16445 KB, 41.85% | 16193 KB, 42.74% |
-|  Grid | 27116 KB | 22595 KB, 16.67% | 15835 KB, 41.60% |
-|  Ribbon | 35791 KB | 26669 KB, 25.49% | 20244 KB, 43.44% |
-|  RichEdit | 41901 KB | 39855 KB, 4.88% | 28556 KB, 31.85% |
-|  Scheduler | 39037 KB | 35128 KB, 10.01% | 23892 KB, 38.80% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 61115 KB | 46329 KB, 24.19% | 38319 KB, 37.30% |
+|  Bars | 26619 KB | 20831 KB, 21.74% | 16311 KB, 38.72% |
+|  Charts | 22829 KB | 18252 KB, 20.05% | 10265 KB, 55.04% |
+|  Editors | 28350 KB | 17472 KB, 38.37% | 13649 KB, 51.86% |
+|  Grid | 27174 KB | 22896 KB, 15.74% | 16742 KB, 38.39% |
+|  Ribbon | 35141 KB | 27352 KB, 22.16% | 21494 KB, 38.83% |
+|  RichEdit | 42480 KB | 38852 KB, 8.54% | 26956 KB, 36.54% |
+|  Scheduler | 39533 KB | 35288 KB, 10.74% | 24607 KB, 37.76% |
 
 
 ### HotStart, .NET Framework 4.7.2
@@ -207,45 +205,46 @@ Below are test results measured by our team ([Results.2023-05-17.md](./CS/Result
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | LWThemes v23.1 |
-|  ---- | ---------------- | -------------- |
-|  Main | 1214 ms | 980 ms, 19.28% |
-|  Bars | 282 ms | 215 ms, 23.76% |
-|  Charts | 270 ms | 249 ms, 7.78% |
-|  Editors | 273 ms | 235 ms, 13.92% |
-|  Grid | 261 ms | 228 ms, 12.64% |
-|  Ribbon | 608 ms | 489 ms, 19.57% |
-|  RichEdit | 869 ms | 729 ms, 16.11% |
-|  Scheduler | 642 ms | 556 ms, 13.40% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 1093 ms | 1078 ms, 1.37% | 951 ms, 12.99% |
+|  Bars | 261 ms | 256 ms, 1.92% | 195 ms, 25.29% |
+|  Charts | 246 ms | 243 ms, 1.22% | 243 ms, 1.22% |
+|  Editors | 257 ms | 232 ms, 9.73% | 227 ms, 11.67% |
+|  Grid | 257 ms | 230 ms, 10.51% | 228 ms, 11.28% |
+|  Ribbon | 557 ms | 526 ms, 5.57% | 453 ms, 18.67% |
+|  RichEdit | 743 ms | 712 ms, 4.17% | 662 ms, 10.90% |
+|  Scheduler | 555 ms | 528 ms, 4.86% | 482 ms, 13.15% |
+
 
 
 ### HotStart, .NET Framework 4.7.2, Ngen
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | LWThemes v23.1 |
-|  ---- | ---------------- | -------------- |
-|  Main | 1080 ms | 894 ms, 17.22% |
-|  Bars | 215 ms | 163 ms, 24.19% |
-|  Charts | 224 ms | 212 ms, 5.36% |
-|  Editors | 207 ms | 187 ms, 9.66% |
-|  Grid | 198 ms | 170 ms, 14.14% |
-|  Ribbon | 514 ms | 384 ms, 25.29% |
-|  RichEdit | 724 ms | 799 ms, -10.36% |
-|  Scheduler | 577 ms | 476 ms, 17.50% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 1101 ms | 1109 ms, -0.73% | 954 ms, 13.35% |
+|  Bars | 221 ms | 216 ms, 2.26% | 173 ms, 21.72% |
+|  Charts | 220 ms | 215 ms, 2.27% | 219 ms, 0.45% |
+|  Editors | 197 ms | 197 ms, 0.00% | 193 ms, 2.03% |
+|  Grid | 203 ms | 248 ms, -22.17% | 183 ms, 9.85% |
+|  Ribbon | 505 ms | 507 ms, -0.40% | 402 ms, 20.40% |
+|  RichEdit | 812 ms | 757 ms, 6.77% | 688 ms, 15.27% |
+|  Scheduler | 592 ms | 506 ms, 14.53% | 486 ms, 17.91% |
 
 
 ### HotStart, .NET 7, ReadyToRun
 
 **Perfomance**
 
-|  Test | v22.2 (baseline) | LWThemes v23.1 |
-|  ---- | ---------------- | -------------- |
-|  Main | 1103 ms | 1010 ms, 8.43% |
-|  Bars | 272 ms | 207 ms, 23.90% |
-|  Charts | 246 ms | 248 ms, -0.81% |
-|  Editors | 251 ms | 227 ms, 9.56% |
-|  Grid | 316 ms | 227 ms, 28.16% |
-|  Ribbon | 621 ms | 477 ms, 23.19% |
-|  RichEdit | 732 ms | 678 ms, 7.38% |
-|  Scheduler | 666 ms | 545 ms, 18.17% |
+|  Test | v22.2  (baseline) | v23.1  | v23.1 LW Themes |
+|  ----- | ----- | ----- | ----- |
+|  Main | 1059 ms | 1046 ms, 1.23% | 997 ms, 5.85% |
+|  Bars | 252 ms | 256 ms, -1.59% | 204 ms, 19.05% |
+|  Charts | 242 ms | 241 ms, 0.41% | 254 ms, -4.96% |
+|  Editors | 237 ms | 239 ms, -0.84% | 231 ms, 2.53% |
+|  Grid | 237 ms | 248 ms, -4.64% | 224 ms, 5.49% |
+|  Ribbon | 560 ms | 529 ms, 5.54% | 447 ms, 20.18% |
+|  RichEdit | 739 ms | 750 ms, -1.49% | 705 ms, 4.60% |
+|  Scheduler | 518 ms | 512 ms, 1.16% | 484 ms, 6.56% |

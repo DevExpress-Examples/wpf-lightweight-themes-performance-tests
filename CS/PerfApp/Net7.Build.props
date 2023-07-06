@@ -1,10 +1,4 @@
-﻿<Project>
-	
-	<PropertyGroup>
-		<BaseIntermediateOutputPath>obj\Net7_v22.2</BaseIntermediateOutputPath>
-	</PropertyGroup>
-
-	<Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+<Project>
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
@@ -13,28 +7,18 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<AssemblyName>PerfApp</AssemblyName>
 		<RootNamespace>PerfApp</RootNamespace>
-		<OutputPath>bin\Net7_v22.2</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<DefaultItemExcludes>obj\**</DefaultItemExcludes>
-		<DefineConstants>v22_2</DefineConstants>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Mono.Cecil" Version="0.11.5" />
-		<PackageReference Include="DevExpress.Wpf" Version="22.2.6" />
-		<PackageReference Include="DevExpress.Wpf.Themes.All" Version="22.2.6" />
-	</ItemGroup>
-	
 	<ItemGroup>
 		<Resource Include="Images\**">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</Resource>
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Include="Data\FirstLook.docx" />
+		<EmbeddedResource Include="Data\FirstLook.docx" />
 	</ItemGroup>
-	
-	<Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
 </Project>
