@@ -28,13 +28,13 @@ namespace PerfApp {
 
     public partial class App : Application {
         public static bool IsTestRun { get; private set; } = false;
-        public static TestView TestView { get; private set; } = TestView.Default;
+        public static TestView TestView { get; private set; } = TestView.Main;
         public static TestType TestType { get; private set; } = TestType.ColdStart;
         public static TestMode TestMode { get; private set; } = TestMode.LightweightThemes;
         public static bool AutoClose => IsTestRun;
         public static string ThemeName = "Office2019Colorful";
         public static bool MemoryMonitoring => IsTestRun && TestType == TestType.ColdStart;
-        static int HotStartRunCount => 5;
+        static int HotStartRunCount => 8;
 
         static int ElapsedMs;
         static int PreloadMs;
