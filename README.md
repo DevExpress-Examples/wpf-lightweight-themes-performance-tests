@@ -5,7 +5,9 @@
 <!-- default badges end -->
 # WPF Lightweight Themes - Performance Tests
 
-In v23.1, we optimized our existing themes and introduced new [lightweight versions](https://docs.devexpress.com/WPF/404442/common-concepts/themes/lightweight-themes?v=23.1) for a few previously available themes: Windows 10, Office, and Visual Studio styles. The new lightweight themes consume less memory and speed up application startup. You can test these performance enhancements on your machine: run our specially-designed application available in this repository.
+In our v23.1 release cycle, we optimized existing WPF themes and introduced new ["lightweight" versions](https://docs.devexpress.com/WPF/404442/common-concepts/themes/lightweight-themes?v=23.1) for the following themes: Windows 10, Office, and Visual Studio styles.
+
+These "lightweight" themes consume less memory and improve application startup speed. To test/review these performance enhancements on your machine, simply run the application included in this repository.
 
 ## Solution Structure
 
@@ -17,7 +19,7 @@ The solution contains 5 projects:
 * PerfApp_NETFramework_v23_1
 * TestRunner
 
-The first 4 projects implement the same UI but use different versions of DevExpress controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` to change test configuration:
+The first 4 projects implement the same UI but use different versions of DevExpress WPF controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` to change test configurations:
 
 ```cs
 public static bool IsTestRun { get; private set; } = false;
@@ -30,9 +32,9 @@ public static bool MemoryMonitoring => IsTestRun && TestType == TestType.ColdSta
 static int HotStartRunCount => 5;
 ```
 
-If you run an application, the main window displays startup time (in milliseconds) in its title bar.
+Once you run an application, the main window will display startup time (in milliseconds) within its title bar.
 
-The **TestRunner** project contains an NUnit test that runs **PerfApp** applications one by one based on settings specified in `Tests.cs`:
+The **TestRunner** project contains an NUnit test that runs **PerfApp** applications (one by one - based on settings specified in `Tests.cs`:)
 
 ```cs
 public static TestConfigurations TestConfigurations = TestConfigurations.All;
@@ -51,21 +53,20 @@ public static readonly int HotStartRunCount = 3;
 
 ## Run Tests
 
-Follow the steps below to run tests:
+To run tests:
 
 1. Open the `ComponentStartupTests.sln` solution.
-2. Build the solution in the **Release** configuration.
+2. Build the solution using **Release** configuration.
 3. (Recommended) Close all open applications except for Visual Studio.
-4. Run tests. We recommend that you use [CodeRush for Visual Studio](https://www.devexpress.com/products/coderush/): our developer productivity IDE extension. If you do use CodeRush, simply right-click the **TestRunner** project in the Solution Explorer and select **Run Tests**.
+4. Run tests. We recommend that you use [CodeRush for Visual Studio](https://www.devexpress.com/products/coderush/): our FREE developer productivity IDE extension. If you do use CodeRush, simply right-click the **TestRunner** project in the Solution Explorer and select **Run Tests**.
 
-After all tests pass, the application creates the `Results.md` file with test results.
+After all tests pass, the application creates a `Results.md` file with test results.
 
-> **Note**
-> It could take over an hour to run tests for all views in all configurations.
+> **Important Note:** It may take over an hour to run tests for all views/across all configurations.
 
 ## Test Results
 
-Below are test results measured by our team ([Results.2023-07-04.md](./CS/Results.2023-07-04.md)):
+Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/Results.2023-07-04.md)):
 
 **Main Test: Ribbon, Docking, Grid, PropertyGrid, Accordion, Editors, LayoutControl, DXTabControl**
 
