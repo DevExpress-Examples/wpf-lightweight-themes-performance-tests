@@ -1,0 +1,22 @@
+﻿<Project>
+	
+	<PropertyGroup>
+		<DXVer>23.2</DXVer>
+		<BaseIntermediateOutputPath>obj\Net7_v23_2</BaseIntermediateOutputPath>
+		<OutputPath>bin\NET7_v23_2</OutputPath>
+        <DefineConstants>v23_2</DefineConstants>
+	</PropertyGroup>
+	
+	<Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+	<Import Project="$(MSBuildThisFileDirectory)Net7.Build.props" />
+	
+	<ItemGroup>
+		<PackageReference Include="Mono.Cecil" Version="0.11.5" />
+		<PackageReference Include="DevExpress.Wpf" Version="23.2.*-*" />
+		<PackageReference Include="DevExpress.Wpf.Themes.All" Version="23.2.*-*" />
+		<PackageReference Include="DevExpress.Wpf.ThemesLW" Version="23.2.*-*" />
+	</ItemGroup>
+
+	<Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+</Project>

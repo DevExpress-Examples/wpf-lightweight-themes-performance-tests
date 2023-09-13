@@ -11,14 +11,17 @@ public class Tests {
     public static TestConfigurations TestConfigurations = TestConfigurations.All;
     public static readonly TestViews TestViews = TestViews.All;
     public static readonly (DXVersion Version, TestMode Mode, bool IsBaseline)[] TestsList = new[] {
-        (DXVersion.v22_2, TestMode.LegacyThemes, true),
-        (DXVersion.v23_1, TestMode.LegacyThemes, false),
-        (DXVersion.v23_1, TestMode.LightweightThemes, false),
+        (DXVersion.v23_2, TestMode.LegacyThemes, false),
+        (DXVersion.v23_2, TestMode.LightweightThemes, false),
+        (DXVersion.v23_2, TestMode.LegacyThemesAfterPreload, true),
+        (DXVersion.v23_2, TestMode.LightweightThemesAfterPreload2, false),
+        (DXVersion.v23_2, TestMode.LegacyThemesAfterPreload2, false),
+        (DXVersion.v23_2, TestMode.LightweightThemesWithAsyncPreload2, false),
     };
     public static readonly bool TestColdStart = true;
-    public static readonly bool TestHotStart = true;
-    public static readonly bool EnableWarmingUp = true;
-    public static readonly int ColdStartRunCount = 4;
+    public static readonly bool TestHotStart = false;
+    public static readonly bool EnableWarmingUp = false;
+    public static readonly int ColdStartRunCount = 3;
     public static readonly int HotStartRunCount = 3;
 
     [Test]
@@ -374,7 +377,7 @@ public class Tests {
             Func<double, double, double> calcChange = (x, y) => (x - y) / x;
             var baseline = result.Results.FirstOrDefault(x => x.IsBaseline);
             foreach(var r in result.Results) {
-                if(r.Mode == TestMode.LegacyThemesAfterPreload && printType == PrintType.Performance) {
+                if(r.Mode.ToString().IndexOf("Preload", StringComparison.OrdinalIgnoreCase) != -1 && printType == PrintType.Performance) {
                     var resStr = $"{(int)r.MeanPreload}(preload) + {(int)r.Mean}(startup) {unit}";
                     cells.Add(resStr);
                     continue;
@@ -449,6 +452,9 @@ public class Tests {
                     case TestMode.LegacyThemes: return "";
                     case TestMode.LegacyThemesAfterPreload: return "With Preload";
                     case TestMode.LightweightThemes: return "LW Themes";
+                    case TestMode.LightweightThemesAfterPreload2: return "LW Themes with Preload v2";
+                    case TestMode.LightweightThemesWithAsyncPreload2: return "LW Themes with Async Preload v2";
+                    case TestMode.LegacyThemesAfterPreload2: return "With Preload v2";
                     default: throw new NotImplementedException();
                 }
             }
@@ -541,7 +547,7 @@ public enum TestViews {
 }
 
 public enum Configuration { NETFramework, NETFrameworkWithNGen, NET7, NET7ReadyToRun }
-public enum DXVersion { v22_2, v23_1 }
+public enum DXVersion { v22_2, v23_1, v23_2 }
 public enum TestView { Editors, Grid, Ribbon, Bars, RichEdit, Scheduler, Charts, Main }
-public enum TestMode { LightweightThemes, LegacyThemes, LegacyThemesAfterPreload }
+public enum TestMode { LightweightThemes, LegacyThemes, LegacyThemesAfterPreload, LightweightThemesAfterPreload2, LightweightThemesWithAsyncPreload2, LegacyThemesAfterPreload2, }
 public enum TestType { ColdStart, HotStart }

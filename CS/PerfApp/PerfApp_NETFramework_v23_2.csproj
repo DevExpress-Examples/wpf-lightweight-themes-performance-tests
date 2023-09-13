@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <DXVer>23.2</DXVer>
+    <BaseIntermediateOutputPath>obj\NETFramework_v23_2</BaseIntermediateOutputPath>
+    <ProjectGuid>{8C672F5E-504B-4FCD-94E0-6F2B7F2E7932}</ProjectGuid>
+    <OutputPath>bin\NETFramework_v23_2</OutputPath>
+    <DefineConstants>v23_2</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)NetFramework.Build.props" />
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.11.4" />
+    <PackageReference Include="DevExpress.Wpf" Version="23.2.*-*" />
+    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="23.2.*-*" />
+    <PackageReference Include="DevExpress.Wpf.ThemesLW" Version="23.2.*-*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DefaultView.xaml.cs">
+      <DependentUpon>DefaultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BarsView.xaml.cs">
+      <DependentUpon>BarsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChartsView.xaml.cs">
+      <DependentUpon>ChartsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RibbonView.xaml.cs">
+      <DependentUpon>RibbonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditorsView.xaml.cs">
+      <DependentUpon>EditorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GridView.xaml.cs">
+      <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\RichEditView.xaml.cs">
+      <DependentUpon>RichEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchedulerView.xaml.cs">
+      <DependentUpon>SchedulerView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DefaultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BarsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChartsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RibbonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EditorsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RichEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SchedulerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\m03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\AlignCenter_20x20.svg" />
+    <Resource Include="Images\Icons\AlignLeft_20x20.svg" />
+    <Resource Include="Images\Icons\AlignRight_20x20.svg" />
+    <Resource Include="Images\Icons\Bold_20x20.svg" />
+    <Resource Include="Images\Icons\BorderStyle_20x20.svg" />
+    <Resource Include="Images\Icons\Bullets-Box-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Circle-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Decimal-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Disc-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-LowerLatin-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-LowerRoman-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-None-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Square-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-UpperLatin-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-UpperRoman-76x76.png" />
+    <Resource Include="Images\Icons\ClearAll_20x20.svg" />
+    <Resource Include="Images\Icons\Copy_20x20.svg" />
+    <Resource Include="Images\Icons\Cut_20x20.svg" />
+    <Resource Include="Images\Icons\FontColor_20x20.svg" />
+    <Resource Include="Images\Icons\FontSizeDecrease_20x20.svg" />
+    <Resource Include="Images\Icons\FontSizeIncrease_20x20.svg" />
+    <Resource Include="Images\Icons\Highlight_20x20.svg" />
+    <Resource Include="Images\Icons\Home_16x16.svg" />
+    <Resource Include="Images\Icons\Icon_Scale_20x20.svg" />
+    <Resource Include="Images\Icons\IndentDecrease_20x20.svg" />
+    <Resource Include="Images\Icons\IndentIncrease_20x20.svg" />
+    <Resource Include="Images\Icons\InsertImage_20x20.svg" />
+    <Resource Include="Images\Icons\Italic_20x20.svg" />
+    <Resource Include="Images\Icons\ListBullets_20x20.svg" />
+    <Resource Include="Images\Icons\New_16x16.svg" />
+    <Resource Include="Images\Icons\New_20x20.svg" />
+    <Resource Include="Images\Icons\Open_16x16.svg" />
+    <Resource Include="Images\Icons\Open_20x20.svg" />
+    <Resource Include="Images\Icons\PageSetup_20x20.svg" />
+    <Resource Include="Images\Icons\Palette_20x20.svg" />
+    <Resource Include="Images\Icons\Paste_20x20.svg" />
+    <Resource Include="Images\Icons\SelectAll_20x20.svg" />
+    <Resource Include="Images\Icons\Thickness.svg" />
+    <Resource Include="Images\Icons\Thickness_20x20.svg" />
+    <Resource Include="Images\Icons\Underline_20x20.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\FirstLook.docx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

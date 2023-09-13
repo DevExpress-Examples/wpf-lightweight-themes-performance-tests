@@ -5,6 +5,7 @@
     <BaseIntermediateOutputPath>obj\NETFramework_v23_1</BaseIntermediateOutputPath>
     <ProjectGuid>{5706D88C-9A4F-4347-B044-25C60FB40E27}</ProjectGuid>
 	<OutputPath>bin\NETFramework_v23_1</OutputPath>
+    <DefineConstants>v23_1</DefineConstants>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(MSBuildThisFileDirectory)NetFramework.Build.props" />

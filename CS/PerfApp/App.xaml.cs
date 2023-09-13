@@ -24,7 +24,7 @@ using System.Windows.Threading;
 namespace PerfApp {
     public enum TestView { Editors, Grid, Ribbon, Bars, RichEdit, Scheduler, Charts, Main, Default }
     public enum TestType { ColdStart, HotStart }
-    public enum TestMode { LightweightThemes, LegacyThemes, LegacyThemesAfterPreload }
+    public enum TestMode { LightweightThemes, LegacyThemes, LegacyThemesAfterPreload, LightweightThemesAfterPreload2, LightweightThemesWithAsyncPreload2, LegacyThemesAfterPreload2, }
 
     public partial class App : Application {
         public static bool IsTestRun { get; private set; } = false;
@@ -53,7 +53,7 @@ namespace PerfApp {
             if(TestMode == TestMode.LightweightThemes)
                 TestMode = TestMode.LegacyThemes;
 #else
-            CompatibilitySettings.UseLightweightThemes = TestMode == TestMode.LightweightThemes;
+            CompatibilitySettings.UseLightweightThemes = TestMode == TestMode.LightweightThemes || TestMode == TestMode.LightweightThemesAfterPreload2 || TestMode == TestMode.LightweightThemesWithAsyncPreload2;
             if (TestMode == TestMode.LegacyThemesAfterPreload)
                 CompatibilitySettings.AllowThemePreload = true;
 #endif
@@ -75,6 +75,12 @@ namespace PerfApp {
         async void StartColdStartTest() {
             if(TestMode == TestMode.LegacyThemesAfterPreload)
                 PreloadLegacyTheme();
+#if v23_2
+            if(TestMode == TestMode.LegacyThemesAfterPreload2 || TestMode == TestMode.LightweightThemesAfterPreload2)
+                Preload2();
+            if(TestMode == TestMode.LightweightThemesWithAsyncPreload2)
+                PreloadAsync2();
+#endif
 
             var s = Stopwatch.StartNew();
             MainWindow = CreateWindow(TestView);
@@ -150,25 +156,52 @@ namespace PerfApp {
             s.Stop();
             PreloadMs = (int)s.ElapsedMilliseconds;
         }
+#if v23_2
+        void Preload2() {
+            var s = Stopwatch.StartNew();
+            ApplicationThemeHelper.Preload(() => GetTestView(TestView));
+            s.Stop();
+            PreloadMs = (int)s.ElapsedMilliseconds;
+        }
+        async void PreloadAsync2() {
+            var s = Stopwatch.StartNew();
+            await ApplicationThemeHelper.PreloadAsync(() => GetTestView(TestView));
+            s.Stop();
+            PreloadMs = (int)s.ElapsedMilliseconds;
+        }
+#endif
         internal static Window CreateWindow(TestView testView) {
             var res = new ThemedWindow() {
                 Title = "MainWindow",
                 Height = 800,
                 Width = 1200,
             };
-            switch(testView) {
-                case TestView.Editors: res.Content = new EditorsView(); break;
-                case TestView.Grid: res.Content = new GridView(); break;
-                case TestView.Ribbon: res.Content = new RibbonView(); break;
-                case TestView.Bars: res.Content = new BarsView(); break;
-                case TestView.RichEdit: res.Content = new RichEditView(); break;
-                case TestView.Scheduler: res.Content = new SchedulerView(); break;
-                case TestView.Charts: res.Content = new ChartsView(); break;
-                case TestView.Main: res.Content = new MainView(); break;
-                case TestView.Default: res.Content = new DefaultView(); break;
-                default: throw new Exception();
-            }
+            res.Content = GetTestView(testView);
             return res;
+        }
+        static System.Windows.Controls.UserControl GetTestView(TestView testView) {
+            switch(testView) {
+                case TestView.Editors:
+                    return new EditorsView();
+                case TestView.Grid:
+                    return new GridView();
+                case TestView.Ribbon:
+                    return new RibbonView();
+                case TestView.Bars:
+                    return new BarsView();
+                case TestView.RichEdit:
+                    return new RichEditView();
+                case TestView.Scheduler:
+                    return new SchedulerView();
+                case TestView.Charts:
+                    return new ChartsView();
+                case TestView.Main:
+                    return new MainView();
+                case TestView.Default:
+                    return new DefaultView();
+                default:
+                    throw new Exception();
+            }
         }
     }
     public static class DispatcherExtensions {

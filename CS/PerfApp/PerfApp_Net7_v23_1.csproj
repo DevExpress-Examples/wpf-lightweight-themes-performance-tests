@@ -4,6 +4,7 @@
 		<DXVer>23.1</DXVer>
 		<BaseIntermediateOutputPath>obj\Net7_v23_1</BaseIntermediateOutputPath>
 		<OutputPath>bin\NET7_v23_1</OutputPath>
+        <DefineConstants>v23_1</DefineConstants>
 	</PropertyGroup>
 	
 	<Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
