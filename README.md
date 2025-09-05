@@ -6,7 +6,7 @@
 <!-- default badges end -->
 # WPF Lightweight Themes - Performance Tests
 
-In our v23.1 release cycle, we optimized existing WPF themes and introduced new ["lightweight" versions](https://docs.devexpress.com/WPF/404442/common-concepts/themes/lightweight-themes?v=23.1) for the following themes: Windows 10, Office, and Visual Studio styles.
+In our v23.1 release cycle, we optimized existing WPF themes and introduced new ["lightweight" versions](https://docs.devexpress.com/WPF/404442/common-concepts/themes/lightweight-themes) for the following themes: Windows 10, Office, and Visual Studio styles.
 
 These "lightweight" themes consume less memory and improve application startup speed. To test/review these performance enhancements on your machine, simply run the application included in this repository.
 
