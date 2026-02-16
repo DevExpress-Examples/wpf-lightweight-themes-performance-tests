@@ -251,7 +251,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  RichEdit | 739 ms | 750 ms, -1.49% | 705 ms, 4.60% |
 |  Scheduler | 518 ms | 512 ms, 1.16% | 484 ms, 6.56% |
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-lightweight-themes-performance-tests&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-lightweight-themes-performance-tests&~~~was_helpful=no)
 
