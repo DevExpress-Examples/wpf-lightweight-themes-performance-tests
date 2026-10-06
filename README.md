@@ -20,7 +20,7 @@ The solution contains 5 projects:
 * PerfApp_NETFramework_v23_1
 * TestRunner
 
-The first 4 projects implement the same UI but use different versions of DevExpress WPF controls (v23.1 and v22.2) and different frameworks (.NET Framework v4.7.2 and .NET 7). You can run each project separately and use settings defined in `App.xaml.cs` to change test configurations:
+The first 4 projects implement the same UI but use different versions of DevExpress WPF controls (v23.1 and v22.2) and different frameworks (.NET Framework and .NET). You can run each project separately and use settings defined in `App.xaml.cs` to change test configurations:
 
 ```cs
 public static bool IsTestRun { get; private set; } = false;
@@ -71,7 +71,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 
 **Main Test: Ribbon, Docking, Grid, PropertyGrid, Accordion, Editors, LayoutControl, DXTabControl**
 
-### ColdStart, .NET Framework 4.7.2
+### ColdStart, .NET Framework
 
 **Perfomance**
 
@@ -100,7 +100,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  Scheduler | 35892 KB | 31713 KB, 11.64% | 20923 KB, 41.71% |
 
 
-### ColdStart, .NET 7
+### ColdStart, .NET
 
 **Perfomance**
 
@@ -129,7 +129,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  Scheduler | 55728 KB | 49690 KB, 10.83% | 34823 KB, 37.51% |
 
 
-### ColdStart, .NET Framework 4.7.2, Ngen
+### ColdStart, .NET Framework, Ngen
 
 **Perfomance**
 
@@ -158,7 +158,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  Scheduler | 35914 KB | 31760 KB, 11.57% | 20906 KB, 41.79% |
 
 
-### ColdStart, .NET 7, ReadyToRun
+### ColdStart, .NET, ReadyToRun
 
 **Perfomance**
 
@@ -187,7 +187,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  Scheduler | 39533 KB | 35288 KB, 10.74% | 24607 KB, 37.76% |
 
 
-### HotStart, .NET Framework 4.7.2
+### HotStart, .NET Framework
 
 **Perfomance**
 
@@ -203,7 +203,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  Scheduler | 596 ms | 713 ms, -19.63% |
 
 
-### HotStart, .NET 7
+### HotStart, .NET
 
 **Perfomance**
 
@@ -220,7 +220,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 
 
 
-### HotStart, .NET Framework 4.7.2, Ngen
+### HotStart, .NET Framework, Ngen
 
 **Perfomance**
 
@@ -236,7 +236,7 @@ Here are our test results for comparison purposes ([Results.2023-07-04.md](./CS/
 |  Scheduler | 592 ms | 506 ms, 14.53% | 486 ms, 17.91% |
 
 
-### HotStart, .NET 7, ReadyToRun
+### HotStart, .NET, ReadyToRun
 
 **Perfomance**
 
